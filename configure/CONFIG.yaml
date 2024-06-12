@@ -16,8 +16,4 @@ environments:
 # component: tag name
 dependencies:
   - epics-base: R7.0.8
-    build: ['yum install -y perl', 
-    'git clone --recursive https://github.com/epics-base/epics-base.git', 
-    'cd epics-build', 'make']
   - boost: boost-1.85.0
-    build: make
