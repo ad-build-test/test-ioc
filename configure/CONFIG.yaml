@@ -16,4 +16,4 @@ environments:
 # component: tag name
 dependencies:
   - epics-base: R7.0.8
-  - boost: boost-1.85.0
+  - asyn: R4.39-1.0.1
