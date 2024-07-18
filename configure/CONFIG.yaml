@@ -19,4 +19,4 @@ dependencies:
   - asyn: R4.39-1.0.1
 
 # Python packages list
-# python: requirements.txt
+python: requirements.txt
