@@ -7,6 +7,9 @@ organization: ad-build-test
 # Build Script for building the component
 build: build.sh
 
+# Deployment Playbook for deploying the component [optional]
+deploy: test-deployment.yaml
+
 # Environments this app runs on
 environments:
   - rocky9
