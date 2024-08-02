@@ -1,19 +1,31 @@
-# the compiler to use
-CC      = g++
+# Makefile at top of application tree
+TOP = .
+include $(TOP)/configure/CONFIG
 
-# compiler flags:
-#  -g    adds debugging information to the executable file
-#  -Wall turns on most, but not all, compiler warnings
-CCFLAGS = -g -Wall
-RM      = rm -rf
+# Directories to build, any order
+DIRS += configure
+DIRS += $(wildcard *Sup)
+DIRS += $(wildcard *App)
+DIRS += $(wildcard *Top)
+DIRS += $(wildcard iocBoot)
 
-default: all
+# The build order is controlled by these dependency rules:
 
-all: main
+# All dirs except configure depend on configure
+$(foreach dir, $(filter-out configure, $(DIRS)), \
+    $(eval $(dir)_DEPEND_DIRS += configure))
 
-main: main.cpp
-	$(CC) $(CCFLAGS) -o main main.cpp
-	@echo "Build complete"
-clean:
-	$(RM) *.dSYM *.out main
-	@echo "Clean complete"
+# Any *App dirs depend on all *Sup dirs
+$(foreach dir, $(filter %App, $(DIRS)), \
+    $(eval $(dir)_DEPEND_DIRS += $(filter %Sup, $(DIRS))))
+
+# Any *Top dirs depend on all *Sup and *App dirs
+$(foreach dir, $(filter %Top, $(DIRS)), \
+    $(eval $(dir)_DEPEND_DIRS += $(filter %Sup %App, $(DIRS))))
+
+# iocBoot depends on all *App dirs
+iocBoot_DEPEND_DIRS += $(filter %App,$(DIRS))
+
+# Add any additional dependency rules here:
+
+include $(TOP)/configure/RULES_TOP
