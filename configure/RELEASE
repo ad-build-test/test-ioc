@@ -36,12 +36,12 @@ ASYN_MODULE_VERSION           = R4.39-1.0.1
 
 # YAMLLOADER=$(EPICS_MODULES)/yamlLoader/$(YAMLLOADER_MODULE_VERSION)
 # YAMLDOWNLOADER = $(EPICS_MODULES)/yamlDownloader/$(YAMLDOWNLOADER_MODULE_VERSION)
-# ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
-ASYN=/build/asyn
+ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
+# ASYN=/build/asyn
 
 
 # =====================================================================
 # Set EPICS_BASE last so it appears last in the DB, DBD, INCLUDE, and LIB search paths
 # ====================================================================
-EPICS_BASE=/build/epics-base
+EPICS_BASE=$(EPICS_SITE_TOP)/base/$(BASE_MODULE_VERSION)
 

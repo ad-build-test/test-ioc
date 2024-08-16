@@ -4,11 +4,11 @@
 # top directory each time this file is changed.
 
 #==============================================================================
-BASE_MODULE_VERSION=R7.0.3.1-1.0
-EPICS_SITE_TOP=/afs/slac/g/lcls/epics
-BASE_SITE_TOP=/afs/slac/g/lcls/epics/base
-EPICS_MODULES=/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules
-IOC_SITE_TOP=/afs/slac/g/lcls/epics/iocTop
+BASE_MODULE_VERSION=7.0.3.1-1.0
+EPICS_SITE_TOP=/sdf/sw/epics
+BASE_SITE_TOP=${EPICS_SITE_TOP}/base
+EPICS_MODULES=${EPICS_SITE_TOP}/${BASE_MODULE_VERSION}/modules
+IOC_SITE_TOP=${EPICS_SITE_TOP}/iocTop
 PACKAGE_SITE_TOP=/afs/slac/g/lcls/package
 MATLAB_PACKAGE_TOP=/afs/slac/g/lcls/package/matlab
 PSPKG_ROOT=/afs/slac/g/lcls/pkg_mgr
