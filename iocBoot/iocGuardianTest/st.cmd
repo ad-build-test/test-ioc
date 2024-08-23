@@ -1,4 +1,4 @@
-#!../../bin/linux-x86_64/Guardian
+#!../../bin/rhel7-x86_64/Guardian
 
 #- You may have to change Guardian to something else
 #- everywhere it appears in this file
