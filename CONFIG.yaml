@@ -16,7 +16,7 @@ environments:
 # component: tag name
 dependencies:
   - epics-base: R7.0.3.1-1.0
-  - asyn: R4.39-1.0.1
+  - asyn: R4.39-1.0.2
 
 # Python packages list
 python: requirements.txt
