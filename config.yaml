@@ -10,7 +10,6 @@ build: build.sh
 # Environments this app runs on
 environments:
   - rocky9
-  - rhel7
 
 # dependencies this app needs built
 # component: tag name
