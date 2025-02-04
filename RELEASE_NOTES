@@ -7,6 +7,9 @@
 #
 #==============================================================
 
+1.0.23  24-Jan-2025  P. Nisperos (pnispero)
+        Dev: Added 2 mock iocs for deployment testing sioc-b34-gtest01 sioc-b34-gtest02
+
 1.0.22  24-Jan-2025  P. Nisperos (pnispero)
         Dev: minor changes 22
 
