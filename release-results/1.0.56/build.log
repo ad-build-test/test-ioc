@@ -1,0 +1,95 @@
+2025-02-06 19:49:29 INFO - Current dir: /mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc
+2025-02-06 19:49:29 INFO - Root dir: /mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4
+2025-02-06 19:49:29 INFO - Installing python packages from requirements.txt
+2025-02-06 19:49:30 INFO - Defaulting to user installation because normal site-packages is not writeable
+Collecting PyYAML==5.4.1
+  Downloading PyYAML-5.4.1-cp39-cp39-manylinux1_x86_64.whl (630 kB)
+Installing collected packages: PyYAML
+Successfully installed PyYAML-5.4.1
+
+2025-02-06 19:49:30 INFO - Build environment:
+self.env={'CORE_BUILD_SYSTEM_SERVICE_PORT_80_TCP_PROTO': 'tcp', 'KUBERNETES_SERVICE_PORT_HTTPS': '443', 'ARTIFACT_API_SERVICE_SERVICE_HOST': '10.100.60.94', 'KUBERNETES_SERVICE_PORT': '443', 'PYTHONUNBUFFERED': '1', 'HOSTNAME': 'builder-5003e65e-test-ioc-rocky9-main', 'ADBS_COMPONENT': 'test-ioc', 'ADBS_SOURCE': '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc', 'DEPLOYMENT_CONTROLLER_SERVICE_PORT_80_TCP_ADDR': '10.107.31.13', 'ADBS_TAG': '1.0.56', 'CORE_BUILD_SYSTEM_SERVICE_SERVICE_PORT': '80', 'CORE_BUILD_SYSTEM_SERVICE_PORT_80_TCP_PORT': '80', 'PWD': '/', 'ARTIFACT_API_SERVICE_PORT_8080_TCP_ADDR': '10.100.60.94', 'DEPLOYMENT_CONTROLLER_SERVICE_SERVICE_HOST': '10.107.31.13', 'ARTIFACT_API_SERVICE_PORT_8080_TCP_PROTO': 'tcp', 'ARTIFACT_API_SERVICE_SERVICE_PORT': '8080', 'EPICS_HOST_ARCH': 'rhel9-x86_64', 'HOME': '/build/', 'KUBERNETES_PORT_443_TCP': 'tcp://10.100.71.53:443', 'DEPLOYMENT_CONTROLLER_SERVICE_SERVICE_PORT_HTTP': '80', 'DEPLOYMENT_CONTROLLER_SERVICE_PORT_80_TCP_PORT': '80', 'DEPLOYMENT_CONTROLLER_SERVICE_PORT_80_TCP': 'tcp://10.107.31.13:80', 'CORE_BUILD_SYSTEM_SERVICE_SERVICE_HOST': '10.105.233.119', 'DEPLOYMENT_CONTROLLER_SERVICE_SERVICE_PORT': '80', 'ADBS_BUILD_COMMAND': '', 'ADBS_GH_USER': '', 'DEPLOYMENT_CONTROLLER_SERVICE_PORT': 'tcp://10.107.31.13:80', 'CORE_BUILD_SYSTEM_SERVICE_PORT_80_TCP_ADDR': '10.105.233.119', 'SHLVL': '0', 'KUBERNETES_PORT_443_TCP_PROTO': 'tcp', 'DEPLOYMENT_CONTROLLER_SERVICE_PORT_80_TCP_PROTO': 'tcp', 'ARTIFACT_API_SERVICE_PORT': 'tcp://10.100.60.94:8080', 'ADBS_OS_ENVIRONMENT': 'rhel9', 'KUBERNETES_PORT_443_TCP_ADDR': '10.100.71.53', 'CORE_BUILD_SYSTEM_SERVICE_SERVICE_PORT_HTTP': '80', 'KUBERNETES_SERVICE_HOST': '10.100.71.53', 'KUBERNETES_PORT': 'tcp://10.100.71.53:443', 'KUBERNETES_PORT_443_TCP_PORT': '443', 'ARTIFACT_API_SERVICE_PORT_8080_TCP_PORT': '8080', 'PATH': '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'ADBS_LINUX_USER': '', 'ADBS_BRANCH': 'main', 'CORE_BUILD_SYSTEM_SERVICE_PORT_80_TCP': 'tcp://10.105.233.119:80', 'ADBS_PR_ID': '79', 'CORE_BUILD_SYSTEM_SERVICE_PORT': 'tcp://10.105.233.119:80', 'ADBS_BUILD_TYPE': 'container', 'ARTIFACT_API_SERVICE_PORT_8080_TCP': 'tcp://10.100.60.94:8080', '_': '/usr/bin/python3', 'LC_CTYPE': 'C.UTF-8'}
+2025-02-06 19:49:30 INFO - Running Build:
+2025-02-06 19:49:34 INFO - make -C ./configure install 
+make[1]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/configure'
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/makeMakefile.pl O.rhel9-x86_64 ../..
+mkdir -p O.Common
+make -C O.rhel9-x86_64 -f ../Makefile TOP=../.. \
+    T_A=rhel9-x86_64 install
+make[2]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/configure/O.rhel9-x86_64'
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/convertRelease.pl checkRelease
+make[2]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/configure/O.rhel9-x86_64'
+make[1]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/configure'
+make -C ./GuardianApp install 
+make[1]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp'
+make -C ./src install 
+make[2]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/src'
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/makeMakefile.pl O.rhel9-x86_64 ../../..
+mkdir -p O.Common
+make -C O.rhel9-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=rhel9-x86_64 install
+make[3]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/src/O.rhel9-x86_64'
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux     -O3 -g   -Wall    -std=c++0x  -m64       -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include                           -I/afs/slac/g/lcls/tools/include         -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/include -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/compiler/gcc -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/os/Linux -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include        -MM -MF GuardianMain.d  ../GuardianMain.cpp
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux     -O3 -g   -Wall    -std=c++0x  -m64       -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include                           -I/afs/slac/g/lcls/tools/include         -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/include -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/compiler/gcc -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/os/Linux -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include        -MM -MF GuardianDriver.d  ../GuardianDriver.cpp
+Creating dbd file Guardian.dbd
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/dbdExpand.pl   -I. -I.. -I../O.Common -I../../../dbd -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/dbd -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/dbd -o Guardian.dbd base.dbd Init.dbd asyn.dbd
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/registerRecordDeviceDriver.pl   -I. -I.. -I../O.Common -I../../../dbd -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/dbd -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/dbd    -o Guardian_registerRecordDeviceDriver.cpp ../O.Common/Guardian.dbd Guardian_registerRecordDeviceDriver /mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux     -O3 -g   -Wall    -std=c++0x  -m64       -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include                           -I/afs/slac/g/lcls/tools/include         -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/include -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/compiler/gcc -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/os/Linux -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include        -MM -MF Guardian_registerRecordDeviceDriver.d  Guardian_registerRecordDeviceDriver.cpp
+Installing created dbd file ../../../dbd/Guardian.dbd
+mkdir ../../../dbd
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux     -O3 -g   -Wall    -std=c++0x  -m64       -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include                           -I/afs/slac/g/lcls/tools/include         -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/include -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/compiler/gcc -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/os/Linux -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include        -c Guardian_registerRecordDeviceDriver.cpp
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux     -O3 -g   -Wall    -std=c++0x  -m64       -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include                           -I/afs/slac/g/lcls/tools/include         -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/include -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/compiler/gcc -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/os/Linux -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include        -c ../GuardianDriver.cpp
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux     -O3 -g   -Wall    -std=c++0x  -m64       -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include                           -I/afs/slac/g/lcls/tools/include         -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/include -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/compiler/gcc -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include/os/Linux -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/include        -c ../GuardianMain.cpp
+/usr/bin/g++ -o Guardian -Wl,-Bstatic -L/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/lib/rhel9-x86_64 -L/mnt/transition/afs/slac.stanford.edu/g/lcls/vol8/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/lib/rhel9-x86_64 -L/mnt/transition/afs/slac.stanford.edu/g/lcls/vol8/epics/base/R7.0.3.1-1.0/lib/rhel9-x86_64 -Wl,-rpath,/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/lib/rhel9-x86_64 -Wl,-rpath,/mnt/transition/afs/slac.stanford.edu/g/lcls/vol8/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/lib/rhel9-x86_64 -Wl,-rpath,/mnt/transition/afs/slac.stanford.edu/g/lcls/vol8/epics/base/R7.0.3.1-1.0/lib/rhel9-x86_64       -m64   -rdynamic         Guardian_registerRecordDeviceDriver.o GuardianDriver.o GuardianMain.o    -ldbRecStd -ldbCore -lca -lCom -lasyn -Wl,-Bdynamic  -lpthread   -lreadline -lncurses -lm -lrt -ldl -lgcc
+Installing created executable ../../../bin/rhel9-x86_64/Guardian
+mkdir ../../../bin
+mkdir ../../../bin/rhel9-x86_64
+make[3]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/src/O.rhel9-x86_64'
+make[2]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/src'
+make -C ./Db install 
+make[2]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/Db'
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/makeMakefile.pl O.rhel9-x86_64 ../../..
+mkdir -p O.Common
+make -C O.rhel9-x86_64 -f ../Makefile TOP=../../.. \
+    T_A=rhel9-x86_64 install
+make[3]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/Db/O.rhel9-x86_64'
+/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/msi -D    -I. -I.. -I../O.Common -I../../../db -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/db -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/db -o ../O.Common/guardian_device_data.db -S../guardian_device_data.substitutions > guardian_device_data.db.d
+/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/msi -D    -I. -I.. -I../O.Common -I../../../db -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/db -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/db -o ../O.Common/guardian_snapshot.db -S../guardian_snapshot.substitutions > guardian_snapshot.db.d
+Inflating database from ../guardian_snapshot.substitutions
+/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/msi    -I. -I.. -I../O.Common -I../../../db -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/db -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/db -o guardian_snapshot.db -S../guardian_snapshot.substitutions
+Inflating database from ../guardian_device_data.substitutions
+/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/msi    -I. -I.. -I../O.Common -I../../../db -I/afs/slac/g/lcls/epics/R7.0.3.1-1.0/modules/asyn/R4.39-1.0.2/db -I/afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/db -o guardian_device_data.db -S../guardian_device_data.substitutions
+Installing created db file ../../../db/guardian_snapshot.db
+Installing created db file ../../../db/guardian_device_data.db
+make[3]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/Db/O.rhel9-x86_64'
+make[2]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp/Db'
+make[1]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/GuardianApp'
+make -C ./iocBoot install 
+make[1]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot'
+make -C ./iocGuardianTest install 
+make[2]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot/iocGuardianTest'
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/convertRelease.pl -t /mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc envPaths
+make[2]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot/iocGuardianTest'
+make -C ./sioc-b34-gtest01 install 
+make[2]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot/sioc-b34-gtest01'
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/convertRelease.pl -t /mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc envPaths
+make[2]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot/sioc-b34-gtest01'
+make -C ./sioc-b34-gtest02 install 
+make[2]: Entering directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot/sioc-b34-gtest02'
+perl -CSD /afs/slac/g/lcls/epics/base/R7.0.3.1-1.0/bin/rhel9-x86_64/convertRelease.pl -t /mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc envPaths
+make[2]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot/sioc-b34-gtest02'
+make[1]: Leaving directory '/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot'
+
+2025-02-06 19:49:34 INFO - Running ansible playbook...
+['ansible-playbook', '-i', '/mnt/eed/ad-build/build-system-playbooks/global_inventory.ini', '-l', 'S3DF', '/mnt/eed/ad-build/build-system-playbooks/ioc_module/ioc_build.yml', '--extra-vars', '{"component": "test-ioc", "branch": "main",                 "user_src_repo": "/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc"}']
+
+PLAY [IOC package build] *******************************************************
+
+TASK [Create build_results/test-ioc-main directory] ****************************
+changed: [localhost]
+
+TASK [Push bin/ db/ dbd/ iocBoot/ to build_results/test-ioc-main directory] ****
+changed: [localhost] => (item=/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/bin)
+changed: [localhost] => (item=/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/db)
+changed: [localhost] => (item=/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/dbd)
+changed: [localhost] => (item=/mnt/eed/ad-build/scratch/test-ioc-main-ROCKY9-67a51236d4286c37b1851cd4/test-ioc/iocBoot)
