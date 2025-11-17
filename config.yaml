@@ -13,17 +13,26 @@ issueTracker: github
 jiraProjectKey: n/a
 
 # [Required]
-# Environments this app runs on
-environments:
-   - ROCKY9
-   - RHEL7
-
-# [Required]
 # Type of deployment
-# Types: [ioc, hla, tools, matlab, pydm]
+# Types: [ioc, hla, tools, matlab, pydm, container]
 deploymentType: ioc
 
 # [Optional] 
 # Build method for building the component
 # Can be a simple command like 'make'
 build: make
+
+# [Optional]
+# Environments this app runs on
+environments:
+   - ROCKY9
+   - RHEL7
+
+# [Optional]
+# Directories and files needed to run application
+runtimeDependencies:
+   - iocBoot
+   - bin
+   - db
+   - dbd
+   - cpuBoot
