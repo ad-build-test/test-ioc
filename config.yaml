@@ -36,3 +36,4 @@ runtimeDependencies:
    - db
    - dbd
    - cpuBoot
+   - mock_runtime_dependency.txt
