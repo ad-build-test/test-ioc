@@ -1,5 +1,0 @@
-# Deploy configuration for IOCS in PRODUCTION
-# ex: <ioc>:<app_tag>
-# sioc-b34-mg01: R1.3.4
-test-ioc-1: test-ioc-1.0.0
-test-ioc-2: test-ioc-1.0.0
