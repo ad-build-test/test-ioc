@@ -31,4 +31,8 @@ environments:
 # [Optional]
 # Directories and files needed to run application
 runtimeDependencies:
+   - bin
+   - iocBoot
+   - db
+   - dbd
    - mock_runtime_dependency.txt
