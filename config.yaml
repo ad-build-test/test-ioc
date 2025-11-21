@@ -26,7 +26,6 @@ build: make
 # Environments this app runs on
 environments:
    - ROCKY9
-   - ROCKY7
 
 # [Optional]
 # Directories and files needed to run application
