@@ -21,4 +21,4 @@ jobs:
     environment: deployment
     steps:
       - name: Deploy
-        run: "Deploying ${{ github.event.inputs.tag }} to ${{ github.event.inputs.facility }}"
+        run: echo "Deploying ${{ github.event.inputs.tag }} to ${{ github.event.inputs.facility }}"
