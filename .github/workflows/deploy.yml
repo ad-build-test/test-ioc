@@ -5,9 +5,9 @@ on:
     inputs:
       facility:
         description: >
-          Deployment facility Deploy only to the specified facility(s). Put 'ALL'
-          for all facilities. | Options: [dev, lcls, facet,
-          testfac] Seperate facilties by comma, ex: dev,lcls
+          Deployment facility - Deploy only to the specified facility(s). 
+          Put 'ALL' for all facilities. Options: [dev, lcls, facet, testfac] 
+          Separate facilities by comma, ex: dev,lcls
         required: true
         type: string
       tag:
@@ -15,10 +15,41 @@ on:
         required: true
         type: string
 
+permissions:
+  deployments: write
+  contents: read
+  actions: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: deployment
     steps:
-      - name: Deploy
-        run: echo "Deploying ${{ github.event.inputs.tag }} to ${{ github.event.inputs.facility }}"
+      - name: Create GitHub Deployment
+        id: deployment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const deployment = await github.rest.repos.createDeployment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: '${{ github.event.inputs.tag }}',
+              environment: 'deployment',
+              required_contexts: [],
+              auto_merge: false,
+              payload: {
+                facility: '${{ github.event.inputs.facility }}',
+                tag: '${{ github.event.inputs.tag }}'
+              },
+              description: 'Deploying ${{ github.event.inputs.tag }} to ${{ github.event.inputs.facility }}'
+            });
+            
+            console.log('Deployment created with ID:', deployment.data.id);
+            console.log('Payload:', JSON.stringify(deployment.data.payload));
+            return deployment.data.id;
+      
+      - name: Log Deployment Details
+        run: |
+          echo "Deployment ID: ${{ steps.deployment.outputs.result }}"
+          echo "Tag: ${{ github.event.inputs.tag }}"
+          echo "Facility: ${{ github.event.inputs.facility }}"
