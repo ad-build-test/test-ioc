@@ -3,13 +3,31 @@ name: Request Deployment
 on:
   workflow_dispatch:
     inputs:
-      facility:
-        description: >
-          Deployment facility - Deploy only to the specified facility(s). 
-          Put 'ALL' for all facilities. Options: [dev, lcls, facet, testfac] 
-          Separate facilities by comma, ex: dev,lcls
-        required: true
-        type: string
+      deploy_to_all:
+        description: 'Deploy to ALL facilities'
+        required: false
+        type: boolean
+        default: false
+      deploy_to_dev:
+        description: 'Deploy to dev'
+        required: false
+        type: boolean
+        default: false
+      deploy_to_lcls:
+        description: 'Deploy to lcls'
+        required: false
+        type: boolean
+        default: false
+      deploy_to_facet:
+        description: 'Deploy to facet'
+        required: false
+        type: boolean
+        default: false
+      deploy_to_testfac:
+        description: 'Deploy to testfac'
+        required: false
+        type: boolean
+        default: false
       tag:
         description: 'Docker/Git tag to deploy'
         required: true
@@ -24,6 +42,31 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Build Facility List
+        id: facilities
+        run: |
+          FACILITIES=""
+          
+          if [ "${{ github.event.inputs.deploy_to_all }}" == "true" ]; then
+            FACILITIES="ALL"
+          else
+            [ "${{ github.event.inputs.deploy_to_dev }}" == "true" ] && FACILITIES="${FACILITIES}dev,"
+            [ "${{ github.event.inputs.deploy_to_lcls }}" == "true" ] && FACILITIES="${FACILITIES}lcls,"
+            [ "${{ github.event.inputs.deploy_to_facet }}" == "true" ] && FACILITIES="${FACILITIES}facet,"
+            [ "${{ github.event.inputs.deploy_to_testfac }}" == "true" ] && FACILITIES="${FACILITIES}testfac,"
+            
+            # Remove trailing comma
+            FACILITIES=${FACILITIES%,}
+          fi
+          
+          if [ -z "$FACILITIES" ]; then
+            echo "Error: No facilities selected"
+            exit 1
+          fi
+          
+          echo "facilities=$FACILITIES" >> $GITHUB_OUTPUT
+          echo "Selected facilities: $FACILITIES"
+      
       - name: Create GitHub Deployment
         id: deployment
         uses: actions/github-script@v7
@@ -37,10 +80,10 @@ jobs:
               required_contexts: [],
               auto_merge: false,
               payload: {
-                facility: '${{ github.event.inputs.facility }}',
+                facility: '${{ steps.facilities.outputs.facilities }}',  // Changed
                 tag: '${{ github.event.inputs.tag }}'
               },
-              description: 'Deploying ${{ github.event.inputs.tag }} to ${{ github.event.inputs.facility }}'
+              description: 'Deploying ${{ github.event.inputs.tag }} to ${{ steps.facilities.outputs.facilities }}'  // Changed
             });
             
             console.log('Deployment created with ID:', deployment.data.id);
@@ -51,4 +94,4 @@ jobs:
         run: |
           echo "Deployment ID: ${{ steps.deployment.outputs.result }}"
           echo "Tag: ${{ github.event.inputs.tag }}"
-          echo "Facility: ${{ github.event.inputs.facility }}"
+          echo "Facility: ${{ steps.facilities.outputs.facilities }}"  // Changed
