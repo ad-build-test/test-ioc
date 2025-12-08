@@ -1,4 +1,4 @@
-name: Deploy Application
+name: Request Deployment
 
 on:
   workflow_dispatch:
@@ -33,6 +33,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: '${{ github.event.inputs.tag }}',
+              environment: 'deployment',
               required_contexts: [],
               auto_merge: false,
               payload: {
