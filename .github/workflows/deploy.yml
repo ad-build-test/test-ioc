@@ -48,7 +48,6 @@ jobs:
             
             # Remove trailing comma
             FACILITIES=${FACILITIES%,}
-          fi
           
           if [ -z "$FACILITIES" ]; then
             echo "Error: No facilities selected"
