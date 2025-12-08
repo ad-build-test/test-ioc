@@ -33,7 +33,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: '${{ github.event.inputs.tag }}',
-              environment: 'deployment',
               required_contexts: [],
               auto_merge: false,
               payload: {
