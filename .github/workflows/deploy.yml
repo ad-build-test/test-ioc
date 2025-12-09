@@ -70,8 +70,9 @@ jobs:
               required_contexts: [],
               auto_merge: false,
               payload: {
-                facility: '${{ steps.facilities.outputs.facilities }}',  // Changed
-                tag: '${{ github.event.inputs.tag }}'
+                facility: '${{ steps.facilities.outputs.facilities }}',
+                tag: '${{ github.event.inputs.tag }}',
+                user: '${{ github.actor }}' 
               },
               description: 'Deploying ${{ github.event.inputs.tag }} to ${{ steps.facilities.outputs.facilities }}'  // Changed
             });
