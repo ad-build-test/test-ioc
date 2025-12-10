@@ -23,6 +23,11 @@ on:
         required: false
         type: boolean
         default: false
+      deploy_to_sandbox:
+        description: 'SANDBOX'
+        required: false
+        type: boolean
+        default: false
       tag:
         description: 'Tag to deploy'
         required: true
@@ -41,10 +46,11 @@ jobs:
         id: facilities
         run: |
           FACILITIES=""
-            [ "${{ github.event.inputs.deploy_to_dev }}" == "true" ] && FACILITIES="${FACILITIES}dev,"
-            [ "${{ github.event.inputs.deploy_to_lcls }}" == "true" ] && FACILITIES="${FACILITIES}lcls,"
-            [ "${{ github.event.inputs.deploy_to_facet }}" == "true" ] && FACILITIES="${FACILITIES}facet,"
-            [ "${{ github.event.inputs.deploy_to_testfac }}" == "true" ] && FACILITIES="${FACILITIES}testfac,"
+            [ "${{ github.event.inputs.deploy_to_dev }}" == "true" ] && FACILITIES="${FACILITIES}DEV,"
+            [ "${{ github.event.inputs.deploy_to_lcls }}" == "true" ] && FACILITIES="${FACILITIES}LCLS,"
+            [ "${{ github.event.inputs.deploy_to_facet }}" == "true" ] && FACILITIES="${FACILITIES}FACET,"
+            [ "${{ github.event.inputs.deploy_to_testfac }}" == "true" ] && FACILITIES="${FACILITIES}TESTFAC,"
+            [ "${{ github.event.inputs.deploy_to_sandbox }}" == "true" ] && FACILITIES="${FACILITIES}SANDBOX,"
             
             # Remove trailing comma
             FACILITIES=${FACILITIES%,}
